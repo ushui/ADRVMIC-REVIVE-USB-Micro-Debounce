@@ -1,5 +1,5 @@
 #### 最新バージョン
-ファームウェア: 001d、001id~~、M_M002d、M_M002id~~  
+ファームウェア: 001d、001id  
 設定ツール: 1.1.0(iOS版は2.0.0)  
 最終更新日: 2020/11/15  
 最終更新内容: 初版リリース  
@@ -31,19 +31,19 @@ REVIVE USB Micro Debounce, Configuration Tool(以下、対策版設定ツール)
 1. ファームウェア書き込みソフトのダウンロード  
 [ファームウェア書き込みソフト「HIDBootLoader.exe」](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/Firmware/HIDBootLoader.exe)をダウンロードしてください。  
 
-1. 対策版ファームウェア(.hex)、対策版設定ツール(.exe)のダウンロード  
+2. 対策版ファームウェア(.hex)、対策版設定ツール(.exe)のダウンロード  
 このリポジトリから以下のいずれかをダウンロードし、展開してください。  
- - [REVIVE_USB_Micro_Debounce-latest.zip(通常版)](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/)
+ - [REVIVE_USB_Micro_Debounce-latest.zip(通常版)](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/REVIVE_USB_Micro_Debounce-latest.zip)
  - ~~REVIVE_USB_Micro_Debounce_Matrix-latest.zip(マトリックス版)~~
  - iOS
-   - [REVIVE_USB_Micro_Debounce_for_iOS-latest.zip(iOS対応・通常版)](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/)
+   - [REVIVE_USB_Micro_Debounce_for_iOS-latest.zip(iOS対応・通常版)](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/REVIVE_USB_Micro_Debounce_for_iOS-latest.zip)
    - ~~REVIVE_USB_Micro_Debounce_Matrix_for_iOS-latest.zip(iOS対応・マトリックス版)~~
 
-1. ファームウェアの書き換え
+3. ファームウェアの書き換え
 Windows PCにREVIVE USB Microを接続し、以下の手順に沿ってファームウェアを書き換えてください（公式ドキュメントです）。 hexファイルは展開したものを指定します。  
 https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/blob/master/Firmware/Readme.md  
 
-1. 対策版設定ツールの起動  
+4. 対策版設定ツールの起動  
 展開したexeファイルを起動してください（_enが付いたものは英語版の設定ツールです）。  
 右下の「FW Version: 」のバージョン文字列の末尾がdもしくはidならば対策版ファームウェアが正しく適用されています。
 
@@ -83,27 +83,39 @@ ON/OFFが確定している間の不安定な信号の揺れを無効化する�
 ## その他ドキュメントについて
  - [FAQ.md](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/blob/master/FAQ.md)
    - 公式FAQに対策版のFAQを追加しました。
- - [公式の設定ツールのReadme.md](https://github.com/bit-trade-one/ADRVMIC-REVIVE-USB-Micro/blob/master/App/Readme.md)
+ - [公式の設定ツールのReadme.md](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/blob/master/App/Readme.md)
    - 公式ドキュメントです。対策版とUIが異なりますが、基本的な使用方法は変わりません。
 
 #### マトリックス版について
 ハードウェアリソースの関係上、実装できなかったため、通常版のみを公開しています。  
-せっかくコーディングしたので、iOS版も含めマトリックス版のソースコードは公開します。ファームウェアは[Firmware_sourceフォルダ](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/tree/master/Firmware_source)内のReviveMicro_FW_MAT_ver002d.zipとFW_MAT_ver002id.zip、設定ツールは[App_sourceフォルダ](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/tree/master/App_source)内のReviveMicro_CTMatrix_v110d.zipとReviveMicro_CTMatrix_v110d_en.zipとReviveMicro_CTMatrix_v200d.zipです。  
-  
-なおコンパイルは通りますが、RAMが足りずにファームウェアが暴走してしまう状態になっています。具体的にはマウスやキーボードの入力が無造作に変わります（キーボードのaを設定して入力したのに設定していないキーが入力される、キーボード入力をしたはずなのにマウスカーソルが動くなど）。  
-ProcessIO関数の変数宣言でRAMを確保した結果、確保済みの他のRAM領域が破壊される（バッファオーバーフローする）ことが原因であり、後述のROM問題に気を配りつつ実装しなければならず、断念した経緯があります。  
-ロータリーエンコーダ機能は省いていますが、それでもそのような状況です。参考、また、実装に挑戦される方はどうぞ。  
+マトリックス版はありませんのでご了承ください。  
 
-#### 開発者向け備考
-通常版についてもオープンソースですので念のため。ファームウェアの改変について、注意事項があります。  
+#### 開発者向け備考（通常版）
+オープンソースですので念のため。ファームウェアの改変について、注意事項があります。  
 対策版ファームウェアはREVIVE USB Micro(PIC18F14K50)のROM（プログラムメモリおよびデータメモリの限界近くまで実装しているため、ソースコードを改変した上でコンパイルすると「Error - section 'xxxx' can not fit the section. 」のエラーが発生し、コンパイルできない事象が発生することがあります。  
 何らかの機能追加等の改変を行うならば、不必要な機能を削ることをお勧めします。それが許容できないならば、以下の工夫を行ってください。  
  - バイトコードを減らすためにコードを最適化する
  - #pragmaディレクティブによってプログラムメモリ、データメモリの格納場所が変わるため、変数やコードの位置を変更する
  - メモリアドレスが記載されたmapファイルを書き換える
- - 有償版のコンパイラ（個人が買える金額ではなかったと思います）を使用して最適化を行った上でコンパイルする
+ - 有償版のコンパイラ（個人が買える金額ではなかったと思います）を使用して最適化を行った上でコンパイルする  
+
 対策版ファームウェアは1つ目と2つ目を実施して今のコードに落ち着きました。もしかすると3つ目を実施すれば良かったのかもしれませんが、正しい理解がなくては取り扱うことができず、PICやコンパイラ仕様の熟知が必要です。  
 いずれの場合も[MPLAB® C18C コンパイラーユーザーズガイド](http://ww1.microchip.com/downloads/jp/devicedoc/51288c_jp.pdf)に一度目を通しておくことをおすすめします。  
+
+#### 開発者向け備考（マトリックス版）
+せっかくコーディングしたので、iOS版も含めマトリックス版のソースコードは公開します。  
+ファームウェアは[Firmware_sourceフォルダ](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/tree/master/Firmware_source)内の以下  
+ - ReviveMicro_FW_MAT_ver002d.zip ※マトリックス版  
+ - FW_MAT_ver002id.zip ※マトリックス・iOS対応版
+
+設定ツールは[App_sourceフォルダ](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/tree/master/App_source)内の以下
+ - ReviveMicro_CTMatrix_v110d.zip ※マトリックス版  
+ - ReviveMicro_CTMatrix_v110d_en.zip ※マトリックス版英語  
+ - ReviveMicro_CTMatrix_v200id.zip ※マトリックス・iOS対応版  
+  
+なおコンパイルは通りますが、RAMが足りずにファームウェアが暴走してしまう状態になっています。具体的にはマウスやキーボードの入力が無造作に変わります（キーボードのaを設定して入力したのに設定していないキーが入力される、キーボード入力をしたはずなのにマウスカーソルが動くなど）。  
+ProcessIO関数の変数宣言でRAMを確保した際に確保済みの他のRAM領域が破壊される（バッファオーバーフローする）ことが原因であり、前述のROM問題に気を配りつつ実装しなければならず、断念した経緯があります。  
+ロータリーエンコーダ機能は省いていますが、それでもそのような状況です。参考、また、実装に挑戦される方はどうぞ。  
 
 ----
 
