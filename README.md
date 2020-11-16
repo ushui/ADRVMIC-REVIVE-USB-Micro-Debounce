@@ -84,13 +84,9 @@ ON/OFFが確定している間の不安定な信号の揺れを無効化する�
  - [FAQ.md](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/blob/master/FAQ.md)
    - 公式FAQに対策版のFAQを追加しました。
  - [公式の設定ツールのReadme.md](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/blob/master/App/Readme.md)
-   - 公式ドキュメントです。対策版とUIが異なりますが、基本的な使用方法は変わりません。
+   - 公式ドキュメントです。対策版とUIが異なりますが、基本的な使用方法は変わりません。 
 
-#### マトリックス版について
-ハードウェアリソースの関係上、実装できなかったため、通常版のみを公開しています。  
-マトリックス版はありませんのでご了承ください。  
-
-#### 開発者向け備考（通常版）
+#### 開発者向け備考
 オープンソースですので念のため。ファームウェアの改変について、注意事項があります。  
 対策版ファームウェアはREVIVE USB Micro(PIC18F14K50)のROM（プログラムメモリおよびデータメモリ）の限界近くまで実装しているため、ソースコードを改変した上でコンパイルすると「Error - section 'xxxx' can not fit the section. 」のエラーが発生し、コンパイルできない事象が発生することがあります。  
 何らかの機能追加等の改変を行うならば、不必要な機能を削ることをお勧めします。  
@@ -102,21 +98,6 @@ ON/OFFが確定している間の不安定な信号の揺れを無効化する�
 
 対策版ファームウェアは1つ目と2つ目を実施して今のコードに落ち着きました。もしかすると3つ目を実施すれば良かったのかもしれませんが、PICやコンパイラ仕様の熟知が必要であり、正しい理解がなくては取り扱うことができません。  
 いずれの場合も[MPLAB® C18C コンパイラーユーザーズガイド](http://ww1.microchip.com/downloads/jp/devicedoc/51288c_jp.pdf)に一度目を通しておくことをおすすめします。  
-
-#### 開発者向け備考（マトリックス版）
-せっかくコーディングしたので、iOS版も含めマトリックス版のソースコードは公開します。  
-ファームウェアは[Firmware_sourceフォルダ](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/tree/master/Firmware_source)内の以下  
- - ReviveMicro_FW_MAT_ver002d.zip ※マトリックス版  
- - FW_MAT_ver002id.zip ※マトリックス・iOS対応版
-
-設定ツールは[App_sourceフォルダ](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/tree/master/App_source)内の以下
- - ReviveMicro_CTMatrix_v110d.zip ※マトリックス版  
- - ReviveMicro_CTMatrix_v110d_en.zip ※マトリックス版英語  
- - ReviveMicro_CTMatrix_v200id.zip ※マトリックス・iOS対応版  
-  
-コンパイルは通りますが、RAMが足りずにファームウェアが暴走してしまう状態になっています。具体的にはマウスやキーボードの入力が無造作に変わります（キーボードのaを設定して入力したのに設定していないキーが入力される、キーボード入力をしたはずなのにマウスカーソルが動くなど）。  
-ProcessIO関数の変数宣言でRAMを確保した際に確保済みの他のRAM領域が破壊される（バッファオーバーフローする）ことが原因であり、前述のROM問題に気を配りつつ実装しなければならず、断念した経緯があります。  
-ロータリーエンコーダ機能は省いていますが、それでもそのような状況です。実装に挑戦される方はどうぞ。  
 
 ----
 
