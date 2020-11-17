@@ -5,7 +5,7 @@
 最終更新内容: 初版リリース  
 
 #  REVIVE USB Micro チャタリング対策版
-本プログラムは、株式会社ビット・トレード・ワンが提供するREVIVE USB MicroのファームウェアおよびWindowsアプリケーション「REVIVE USB Micro Configuration Tool」を、[Assembly Desk License](https://raw.githubusercontent.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/master/LICENSE)ライセンスに基づいて改変したプログラムです。  
+本プログラムは、株式会社ビット・トレード・ワンが提供するREVIVE USB MicroのファームウェアおよびWindowsアプリケーション「REVIVE USB Micro Configuration Tool」を、[Assembly Desk License](https://raw.githubusercontent.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/master/LICENSE.md)ライセンスに基づいて改変したプログラムです。  
 ここでは追加・変更した機能について記載します。基本的な使用方法、プログラムの仕様は改変元プログラムと変わりませんので、概要については[公式リポジトリ](https://github.com/bit-trade-one/ADRVMIC-REVIVE-USB-Micro)をご覧ください。  
 
 ## 特徴
