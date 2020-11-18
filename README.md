@@ -106,9 +106,9 @@ ON/OFFが確定している間の不安定な信号の揺れを無効化する�
 
 ### マトリックス版
 マトリックス版は公開していませんが、せっかくコーディングしたのでソースコードは公開します。  
-REVIVE USB Microを文鎮化させる恐れのある、危険なバージョンですのでご注意ください（仮に文鎮化しても私もビットトレードワン社も責任を取れません）。  
+**REVIVE USB Microを文鎮化させる恐れのある、危険なバージョンですのでご注意ください（文鎮化しても私もビットトレードワン社も責任を取れません）。**  
  - [ファームウェア](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/Firmware_source/ReviveMicro_FW_MAT_ver002d.zip)  
- - [設定ツール](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/App_source/ReviveMicro_CT_ver110d.zip)
+ - [設定ツール](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/App_source/ReviveMicro_CTMatrix_v110d.zip)
   
 コンパイルは通りますが、RAMが足りずにファームウェアが暴走してしまう状態になっています。キーボード、マウス、ジョイパッド、チャタリング防止機能等、一見普通に動きますが、テストのため設定ツールで何度か書き込みを行ったところ、REVIVE USB Microが文鎮化してUSB接続をしても正しく認識しなくなってしまいました。  
 main.cの冒頭で（このハードウェアにしては）大きな変数を確保しており、ProcessIOなど関数内の変数宣言でRAMを確保した際に確保済みのEEPROM用変数を破壊（バッファオーバーフロー）した結果、通常ありえない値が書き込まれたことが原因ではないかと思っています。  
