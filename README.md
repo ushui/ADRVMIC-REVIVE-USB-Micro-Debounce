@@ -92,6 +92,13 @@ ON/OFFが確定している間の不安定な信号の揺れを無効化する�
 
 ## 開発者向け備考
 ### 通常版
+ソースコードは以下です。  
+ - [ファームウェア 通常版](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/Firmware_source/ReviveMicro_FW_ver001d.zip)  
+ - [ファームウェア iOS対応・通常版](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/Firmware_source/iOS/FW_ver001id.zip)  
+ - [設定ツール 通常版](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/App_source/ReviveMicro_CT_ver110d.zip)  
+ - [設定ツール 通常版・英語](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/App_source/ReviveMicro_CT_ver110d_en.zip)  
+ - [設定ツール iOS対応・通常版](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/App_source/iOS/ReviveMicro_CT_ver200id.zip)  
+
 オープンソースですので念のため。ファームウェアの改変について、注意事項があります。  
 対策版ファームウェアはREVIVE USB Micro(PIC18F14K50)のROM（プログラムメモリおよびデータメモリ）の限界近くまで実装しているため、ソースコードを改変した上でコンパイルすると「Error - section 'xxxx' can not fit the section. 」のエラーが発生し、コンパイルできない事象が発生することがあります。  
 何らかの機能追加等の改変を行うならば、不必要な機能を削ることをお勧めします。  
@@ -106,9 +113,9 @@ ON/OFFが確定している間の不安定な信号の揺れを無効化する�
 
 ### マトリックス版
 マトリックス版は公開していませんが、せっかくコーディングしたのでソースコードは公開します。  
-**REVIVE USB Microを文鎮化させる恐れのある、危険なバージョンですのでご注意ください（文鎮化しても私もビットトレードワン社も責任を取れません）。**  
- - [ファームウェア](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/Firmware_source/ReviveMicro_FW_MAT_ver002d.zip)  
- - [設定ツール](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/App_source/ReviveMicro_CTMatrix_v110d.zip)
+**REVIVE USB Microを文鎮化させる恐れのある、大変危険なバージョンですのでご注意ください（文鎮化しても私もビットトレードワン社も責任を取れません）。**  
+ - [ファームウェア 未公開マトリックス版](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/Firmware_source/ReviveMicro_FW_MAT_ver002d.zip)  
+ - [設定ツール 未公開マトリックス版](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/App_source/ReviveMicro_CTMatrix_v110d.zip)
   
 コンパイルは通りますが、RAMが足りずにファームウェアが暴走してしまう状態になっています。キーボード、マウス、ジョイパッド、チャタリング防止機能等、一見普通に動きますが、テストのため設定ツールで何度か書き込みを行ったところ、REVIVE USB Microが文鎮化してUSB接続をしても正しく認識しなくなってしまいました。  
 main.cの冒頭で（このハードウェアにしては）大きな変数を確保しており、ProcessIOなど関数内の変数宣言でRAMを確保した際に確保済みのEEPROM用変数を破壊（バッファオーバーフロー）した結果、通常ありえない値が書き込まれたことが原因ではないかと思っています。  
