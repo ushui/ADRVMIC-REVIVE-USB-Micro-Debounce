@@ -31,19 +31,21 @@ REVIVE USB Micro Debounce, Configuration Tool(以下、対策版設定ツール)
 1. ファームウェア書き込みソフトのダウンロード  
 [ファームウェア書き込みソフト「HIDBootLoader.exe」](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/Firmware/HIDBootLoader.exe)をダウンロードしてください。  
 
-2. 対策版ファームウェア(.hex)、対策版設定ツール(.exe)のダウンロード  
+1. 対策版ファームウェア(.hex)、対策版設定ツール(.exe)のダウンロード  
 このリポジトリから以下のいずれかをダウンロードし、展開してください。  
- - [REVIVE_USB_Micro_Debounce-latest.zip(通常版)](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/REVIVE_USB_Micro_Debounce-latest.zip)
- - ~~REVIVE_USB_Micro_Debounce_Matrix-latest.zip(マトリックス版)~~
- - iOS
-   - [REVIVE_USB_Micro_Debounce_for_iOS-latest.zip(iOS対応・通常版)](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/REVIVE_USB_Micro_Debounce_for_iOS-latest.zip)
-   - ~~REVIVE_USB_Micro_Debounce_Matrix_for_iOS-latest.zip(iOS対応・マトリックス版)~~
+   - [REVIVE_USB_Micro_Debounce-latest.zip(通常版)](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/REVIVE_USB_Micro_Debounce-latest.zip)
+   - ~~REVIVE_USB_Micro_Debounce_Matrix-latest.zip(マトリックス版)~~
+   - iOS
+     - [REVIVE_USB_Micro_Debounce_for_iOS-latest.zip(iOS対応・通常版)](https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/raw/master/REVIVE_USB_Micro_Debounce_for_iOS-latest.zip)
+     - ~~REVIVE_USB_Micro_Debounce_Matrix_for_iOS-latest.zip(iOS対応・マトリックス版)~~
 
-3. ファームウェアの書き換え
-Windows PCにREVIVE USB Microを接続し、以下の手順に沿ってファームウェアを書き換えてください（公式ドキュメントです）。 hexファイルは展開したものを指定します。  
+1. ファームウェアの書き換え
+Windows PCにREVIVE USB Microを接続し、以下の手順に沿ってファームウェアを書き換えてください（公式ドキュメントです）。  
 https://github.com/ushui/ADRVMIC-REVIVE-USB-Micro-Debounce/blob/master/Firmware/Readme.md  
+    - この時点ではまだ対策版設定ツールを使用せず、公式設定ツールを使用してください。  
+    - hexファイルはダウンロードしたものを指定してください。  
 
-4. 対策版設定ツールの起動  
+1. 対策版設定ツールの起動  
 展開したexeファイルを起動してください（_enが付いたものは英語版の設定ツールです）。  
 右下の「FW Version: 」のバージョン文字列の末尾がdもしくはidならば対策版ファームウェアが正しく適用されています。
 
